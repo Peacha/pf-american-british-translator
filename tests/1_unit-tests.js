@@ -25,7 +25,7 @@ suite('Unit Tests', () => {
   });
 
   suite('Function ____()', () => {
-    suite('American to British English', () => {
+   suite('American to British English', () => {
       test('Mangoes are my favorite fruit. --> Mangoes are my favourite fruit.', done => {
         translatorApp.htmlUpdates = false      
         translatorApp.toBritish();
@@ -103,6 +103,7 @@ suite('Unit Tests', () => {
     suite('British to American English', () => {
 
       test('We watched the footie match for a while. --> We watched the soccer match for a while.', done => {
+        translatorApp.htmlUpdates = false 
         translatorApp.toAmerican();
         const input = 'We watched the footie match for a while.';
         const output = 'We watched the soccer match for a while.';
@@ -167,8 +168,8 @@ suite('Unit Tests', () => {
       });
 
       test('Tea time is usually around 4 or 4.30. --> Tea time is usually around 4 or 4:30.', done => {
-        const input = 'Lunch is at 12:15 today.';
-        const output = 'Lunch is at 12.15 today.';
+        const input = 'Lunch is at 12.15 today.';
+        const output = 'Lunch is at 12:15 today.';
         assert.equal(translatorApp.translate(input),output)
         done();
       });
@@ -176,5 +177,4 @@ suite('Unit Tests', () => {
     });
 
   });
-
 });
